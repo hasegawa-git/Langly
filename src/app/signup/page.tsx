@@ -22,7 +22,7 @@ export default function SignupPage() {
     });
 
     if (res.ok) {
-      router.push("/api/auth/login");
+      router.push("/");
     } else {
       const data = await res.json();
       setError(data.error);
@@ -38,7 +38,7 @@ export default function SignupPage() {
         {/* エラーがある時だけ、赤い文字で表示する（短絡評価 &&） */}
         {error && <p className="text-red-500 mb-4 text-sm">{error}</p>}
 
-        {/* パスワード入力欄 */}
+        {/* メールアドレス入力欄 */}
         <input
           type="email"
           placeholder="Email"
