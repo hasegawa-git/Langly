@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NextAuth from "next-auth";
+import NextAuthProvider from "@/components/NextAuthProvider";
 
 export const metadata: Metadata = {
   title: "Langly - 外国語学習アプリ",
@@ -9,13 +11,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
     <html lang="ja">
-      <body>{/* ここに書いたものは全ページで表示されます */}
-        <header className="p-4 border-b">
-          <h2 className="font-bold">Langly</h2>
-        </header>
-
-        {/* childrenの部分に各ページ(page.tsx)の中身が入ります*/}
-        {children}
+      <body>
+        <NextAuthProvider>
+          {children}
+        </NextAuthProvider>
       </body>
     </html >
   );
