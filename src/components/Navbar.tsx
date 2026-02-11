@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
-import { sign } from "crypto";
+import { useSession, signOut, signIn } from "next-auth/react";
 
 // ナビゲーションバーを定義
 export default function Navbar() {
@@ -24,7 +23,7 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <Link href="/api/auth/signin">Login</Link>
+            <button onClick={() => signIn()} className="hover:text-blue-300">Login</button>
             <Link href="/signup" className="bg-blue-500 px-3 py-1 rounded">Sign Up</Link>
           </>
         )}
