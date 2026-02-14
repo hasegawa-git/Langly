@@ -3,9 +3,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { query } from "@/lib/db";
 import bcrypt from "bcrypt";
 import { use } from "react";
+import { NextAuthOptions } from "next-auth";
 
 // 認証を行う関数を定義
-const handler = NextAuth({
+export const authOptions: NextAuthOptions = {
   // 認証プロバイダーの設定
   providers: [
     CredentialsProvider({
@@ -59,7 +60,9 @@ const handler = NextAuth({
 
   // 秘密鍵の設定
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
+
+const handler = NextAuth(authOptions);
 
 // APIとして公開
 export { handler as GET, handler as POST };
