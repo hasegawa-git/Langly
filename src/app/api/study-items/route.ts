@@ -4,6 +4,31 @@ import { query } from "@/lib/db";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { error } from "console";
 
+// 💡 GETリクエストの処理を定義
+export async function GET() {
+  try {
+    // セッションを確認
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    // ログインユーザーのデータだけをDBから取得
+    const result = await query(
+      "SELECT * FROM study_items WHERE user_id = $1 ORDER BY created_at DESC",
+      [Number(session.user.id)]
+    );
+
+    // 取得したリストを返す
+    return NextResponse.json(result.rows);
+
+  } catch (error) {
+    console.error("Database error:", error);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+  }
+}
+
 // 学習データを新規登録するAPIの関数を定義
 export async function POST(request: Request) {
   try {
