@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
+// データの型定義
 interface StudyItem {
   id: number;
   title: string;
@@ -16,7 +17,7 @@ export default function Home() {
   const [items, setItems] = useState<StudyItem[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // 読み上げ機能の関数 
+  // 1. 読み上げ機能の関数 
   const handlePlay = (text: string) => {
     // ブラウザが読み上げ中なら一度止める
     window.speechSynthesis.cancel();
@@ -28,6 +29,7 @@ export default function Home() {
     window.speechSynthesis.speak(utterance);
   };
 
+  // 2. APIからデータを取得する
   useEffect(() => {
     const fetchItems = async () => {
       if (session) {
@@ -49,11 +51,14 @@ export default function Home() {
     fetchItems();
   }, [session]);
 
+  // --- 画面表示 A: ログインしていない場合 ---
   if (!session) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh]">
         <h1 className="text-5xl font-extrabold mb-4 text-blue-600">langly</h1>
-        <p className="text-xl text-gray-600 mb-8">聴いて、覚える。あなたのためのリスニング・ライブラリ。</p>
+        <p className="text-xl text-gray-600 mb-8 text-center">
+          聴いて、覚える。あなたのためのリスニング・ライブラリ。
+        </p>
         <Link href="/signup" className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition shadow-lg">
           無料で始める
         </Link>
@@ -61,6 +66,7 @@ export default function Home() {
     );
   }
 
+  // --- 画面表示 B: ログインしている場合 ---
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="flex justify-between items-center mb-8">
@@ -84,11 +90,16 @@ export default function Home() {
           {items.map((item) => (
             <div key={item.id} className="p-6 border rounded-xl shadow-sm bg-white hover:shadow-md transition border-gray-100">
               <div className="flex justify-between items-start mb-4">
-                <h2 className="text-xl font-bold text-gray-900">{item.title}</h2>
-                {/* 🎙 再生ボタン */}
+                <Link href={`/study-items/${item.id}`} className="hover:underline flex-1">
+                  <h2 className="text-xl font-bold text-gray-900 hover:text-blue-600 transition">
+                    {item.title}
+                  </h2>
+                </Link>
+
+                {/* 再生ボタン */}
                 <button
                   onClick={() => handlePlay(item.content)}
-                  className="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition"
+                  className="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition ml-4"
                   title="音声を再生"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -97,9 +108,11 @@ export default function Home() {
                   </svg>
                 </button>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed bg-gray-50 p-4 rounded-lg italic">
+
+              <p className="text-gray-700 text-lg leading-relaxed bg-gray-50 p-4 rounded-lg italic line-clamp-2">
                 "{item.content}"
               </p>
+
               <div className="mt-4 text-xs text-gray-400 flex justify-end">
                 登録日: {new Date(item.created_at).toLocaleDateString()}
               </div>
