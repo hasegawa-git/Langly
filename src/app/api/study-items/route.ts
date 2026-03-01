@@ -4,7 +4,7 @@ import { query } from "@/lib/db";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { error } from "console";
 
-// 💡 GETリクエストの処理を定義
+// GETリクエストの処理を定義
 export async function GET() {
   try {
     // セッションを確認
