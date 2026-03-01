@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { query } from "@/lib/db";
+import { query } from "../../../../lib/db";
 import bcrypt from "bcrypt";
 import { use } from "react";
 import { NextAuthOptions } from "next-auth";
