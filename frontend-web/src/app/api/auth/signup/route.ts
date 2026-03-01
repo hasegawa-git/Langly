@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { query } from "@/lib/db";
+import { query } from "../../../../lib/db";
 import bcrypt from "bcrypt";
 import { request } from "http";
 import { error } from "console";
