@@ -1,16 +1,53 @@
-# Langly 
+# Langly
 外国語学習をより楽しく、スマートに。
-Azure AI Speechを活用した次世代の語学学習Webアプリケーション。
+Azure AI Speechを活用したリスニング特化型の語学学習アプリケーション。
 
 ## 技術スタック
-- **Frontend**: Next.js (App Router)
-- **Database**: PostgreSQL (Raw SQL)
-- **Auth**: NextAuth.js
+- **Web Frontend**: Next.js / TypeScript / Tailwind CSS
+- **iOS**: Swift / SwiftUI
+- **Backend**: Python / FastAPI
+- **Database**: Supabase (PostgreSQL)
+- **Auth**: Supabase Auth
 - **Storage**: Supabase Storage
 - **AI**: Azure AI Speech (TTS)
+- **Hosting**: Cloudflare Pages / Workers
 
-## 開発状況
-- [x] プロジェクト初期化
-- [x] フォルダ構造の整理
-- [x] GitHub (SSH) 連携
-- [ ] データベース設計 (Next Step!)
+## ディレクトリ構成
+```
+langly/
+├── frontend-web/   # Next.js Webアプリ
+├── frontend-ios/   # Swift/SwiftUI iOSアプリ
+├── backend/        # FastAPI バックエンド
+└── docs/           # 設計・要件ドキュメント
+```
+
+## ローカル環境構築
+
+### 前提条件
+- Node.js 20以上
+- npm
+
+### セットアップ
+
+```bash
+cd frontend-web
+npm install
+```
+
+### 環境変数
+
+`frontend-web/.env.local` を作成し、以下を設定する。
+
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+
+### 起動
+
+```bash
+cd frontend-web
+npm run dev
+```
+
+`http://localhost:3000` で起動する。
