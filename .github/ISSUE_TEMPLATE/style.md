@@ -1,7 +1,7 @@
 ---
 name: "style"
 about: "コードの動作に影響しない、見た目やフォーマットを修正する"
-title: "[style]: "
+title: "style: "
 labels: "style"
 assignees: "hasegawa-git"
 ---

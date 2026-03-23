@@ -1,8 +1,8 @@
 ---
 name: "docs"
 about: "仕様書や設計書を編集する"
-title: "[docs]: "
-labels: "dogs"
+title: "docs: "
+labels: "docs"
 assignees: "hasegawa-git"
 ---
 

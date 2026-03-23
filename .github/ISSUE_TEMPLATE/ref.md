@@ -1,7 +1,7 @@
 ---
 name: "ref"
 about: "機能は変えず、コードの整理や改善を行う"
-title: "[ref]: "
+title: "ref: "
 labels: "ref"
 assignees: "hasegawa-git"
 ---

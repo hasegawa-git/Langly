@@ -1,7 +1,7 @@
 ---
 name: "chore"
 about: "環境構築、ライブラリ更新、リポジトリ整理などを行う"
-title: "[chore]: "
+title: "chore: "
 labels: "chore"
 assignees: "hasegawa-git"
 ---
