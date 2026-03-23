@@ -1,7 +1,7 @@
 ---
 name: "feat"
 about: "新しい機能や改善案を追加する"
-title: "[feat]: "
+title: "feat: "
 labels: "feat"
 assignees: "hasegawa-git"
 ---

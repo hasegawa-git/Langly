@@ -1,7 +1,7 @@
 ---
 name: "bug"
 about: "問題報告やバグ修正を行う"
-title: "[bug]: "
+title: "bug: "
 labels: "bug"
 assignees: "hasegawa-git"
 ---
