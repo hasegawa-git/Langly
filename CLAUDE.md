@@ -30,9 +30,8 @@ langly/
 
 ## ブランチ命名規則
 
-```
-<type>/<issue番号>-<概要>
-```
+- 言語: 英語
+- 形式: `<type>/<issue番号>-<概要>`
 
 | type       | 用途             |
 | ---------- | ---------------- |
@@ -47,24 +46,26 @@ langly/
 
 ## コミットメッセージ規則
 
-```
-<type>: <概要> (#<issue番号>)
-```
-
-例：`feat: setup backend (#34)`
+- 言語: 英語
+- 形式: `<type>: <概要> (#<issue番号>)`
+- 例：`feat: implement users endpoint (#41)`
 
 ## issue
 
 - issueテンプレートを使用する（`.github/ISSUE_TEMPLATE/`）
 - 1 issue = 1機能・1タスク
+- タイトル: 英語
+- 本文: 日本語
 
 ## PR
 
 - PRテンプレートを使用する（`.github/PULL_REQUEST_TEMPLATE.md`）
 - 必ず関連issueを記載する（`Closes #番号`）
 - mainへの直接pushは禁止
+- タイトル: 英語
+- 本文: 日本語
 
 ## git操作
 
-- Claudeはgitコマンドとコミットメッセージの提示のみ行う
+- ClaudeはgitコマンドとコミットメッセージとPRの提示のみ行う
 - 実行はユーザーが行う
