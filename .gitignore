@@ -29,6 +29,7 @@ venv/
 env/
 .pytest_cache/
 .python-version
+*.egg-info/
 
 # --- iOS (Swift / Xcode) ---
 # ビルド生成物や個人設定を無視
