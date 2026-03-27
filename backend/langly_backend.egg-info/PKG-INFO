@@ -10,3 +10,5 @@ Requires-Dist: python-dotenv>=1.0.0
 Requires-Dist: PyJWT>=2.8.0
 Requires-Dist: cryptography>=42.0.0
 Requires-Dist: httpx>=0.27.0
+Requires-Dist: azure-cognitiveservices-speech>=1.40.0
+Requires-Dist: supabase>=2.0.0
