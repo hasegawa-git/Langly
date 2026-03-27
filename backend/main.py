@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from db import close_pool, get_pool
-from routers import users, items
+from routers import users, items, mylist
 
 
 @asynccontextmanager
@@ -19,6 +19,7 @@ app = FastAPI(title="Langly API", lifespan=lifespan)
 
 app.include_router(users.router)
 app.include_router(items.router)
+app.include_router(mylist.router)
 
 
 @app.get("/health")
