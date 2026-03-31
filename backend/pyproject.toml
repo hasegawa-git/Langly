@@ -1,8 +1,8 @@
 [project]
-name = "langly-backend"
-version = "0.1.0"
-requires-python = ">=3.11"
-dependencies = [
+name = "langly-backend"     # プロジェクトの名前
+version = "0.1.0"           # バージョン番号
+requires-python = ">=3.11"  # Python 3.11以上が必要
+dependencies = [.           # インストールが必要なライブラリ一覧
     "fastapi>=0.115.0",
     "uvicorn>=0.32.0",
     "asyncpg>=0.30.0",
